@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lisa Reitinger</title>
+
     <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <!-- Header -->
@@ -12,17 +14,24 @@
       <div class="navbar">
         <div class="logo-image">
           <a href="index.html">
-            <img src="./images/logo.png" alt="Logo of Lisa Reitinger" />
+            <img src="./images/logo.png" alt="Logo" />
           </a>
         </div>
 
+        <!-- Hamburger Icon (mobile) -->
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
         <!-- Navigation Menu -->
-        <ul>
+        <ul class="nav-links" id="nav-links">
           <li>Home</li>
           <li>Work</li>
           <li>Contact</li>
         </ul>
       </div>
     </header>
+
+    <script src="script.js"></script>
   </body>
 </html>

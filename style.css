@@ -1,3 +1,6 @@
+/* Import Font Awesome for the bar icon */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +14,7 @@ body {
   height: 100vh;
 }
 
+/* Navbar */
 .navbar {
   --text-color: #fff;
   --text-color-inverse: #000;
@@ -27,100 +31,132 @@ body {
   transition: all 150ms ease;
   overflow: hidden;
   font-size: 110%;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: var(--background);
-    width: 100%;
-    height: 100%;
-    transform: translateY(var(--y-offset));
-    transition: transform 150ms ease;
-    z-index: 2;
-  }
+.navbar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--background);
+  width: 100%;
+  height: 100%;
+  transform: translateY(var(--y-offset));
+  transition: transform 150ms ease;
+  z-index: 2;
+}
 
-  .logo-image {
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    z-index: 5;
-    height: auto;
-    width: 90px;
-  }
+.logo-image {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+  height: auto;
+  width: 90px;
+}
 
-  .logo-image img {
-    width: 90px;
-  }
+.logo-image img {
+  width: 90px;
+}
 
-  ul {
-    width: 50%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    z-index: 5;
-    li {
-      --margin: 40px;
-      position: relative;
-      text-align: center;
-      list-style: none;
-      text-transform: uppercase;
-      font-size: 1.2rem;
-      padding: 5px;
-      margin: 0 var(--margin);
-      transition: all 150ms ease;
-      cursor: pointer;
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--text-color);
-        transform-origin: right;
-        transform: scaleX(0);
-        transition: transform 350ms ease;
-      }
+.nav-links {
+  display: flex;
+  list-style: none;
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+  z-index: 5;
+}
 
-      &:hover {
-        &::after {
-          transform-origin: left;
-          transform: scaleX(1);
-        }
-      }
-    }
-  }
+.nav-links li {
+  --margin: 40px;
+  position: relative;
+  text-align: center;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  padding: 5px;
+  margin: 0 var(--margin);
+  transition: all 150ms ease;
+  cursor: pointer;
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--text-color);
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 350ms ease;
+}
+
+.nav-links li:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  padding: 30px;
+  cursor: pointer;
+  z-index: 10;
+  color: white;
 }
 
 /* Media Queries */
-
 @media only screen and (max-width: 900px) {
-  .navbar {
-    ul {
-      li {
-        --margin: 20px;
-      }
-    }
+  .nav-links li {
+    --margin: 20px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar {
-    ul {
-      li {
-        --margin: 10px;
-      }
-    }
+  .nav-links li {
+    --margin: 10px;
   }
 }
+
 @media only screen and (max-width: 520px) {
-  .navbar {
-    ul {
-      li {
-        opacity: 0;
-      }
-    }
+  .nav-links li {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 100%;
+    background-color: #355070;
+    padding: 20px;
+    z-index: 4;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    padding-left: 20px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .nav-links li::after {
+    display: none; /* Hide underline on mobile */
   }
 }
