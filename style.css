@@ -174,3 +174,173 @@ body {
     padding: 0 10px;
   }
 }
+
+/* Intro styles */
+
+/* ========== INTRO SCREEN ========== */
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #6d597a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+  /* tryout */
+  background: linear-gradient(-45deg, #6d597a, #b56576, #355070, #f28482);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.intro-screen h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+/* Wraps the image and button */
+.intro-content {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Laptop image */
+.intro-laptop {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1.2s ease-in-out;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* Button positioned inside the screen */
+.button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#enterBtn {
+  padding: 10px 24px;
+  background-color: #355070;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#enterBtn:hover {
+  background-color: #eee;
+  transform: translateY(-2px);
+  color: #333;
+}
+
+/* Zoom animation */
+.intro-screen.zooming .intro-laptop {
+  transform: scale(6) translateY(10vh);
+}
+
+.intro-screen.zooming {
+  pointer-events: none;
+}
+
+/* ========== MAIN SITE FADE-IN ========== */
+#site-content.hidden {
+  display: none;
+  opacity: 0;
+}
+
+#site-content.visible {
+  display: block;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing screen background inside laptop */
+.screen-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px; /* wider */
+  height: 265px; /* taller to fill screen area */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0)
+  );
+  transform: translate(-50%, -50%);
+  animation: screenPulse 2.5s ease-in-out infinite;
+  z-index: -1;
+  border-radius: 20px;
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes screenPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .intro-screen h1 {
+    font-size: 1.4rem;
+  }
+
+  #enterBtn {
+    font-size: 0.95rem;
+    padding: 8px 20px;
+  }
+
+  .intro-content {
+    max-width: 90%;
+  }
+
+  .screen-bg {
+    display: none;
+  }
+}
