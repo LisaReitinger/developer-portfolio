@@ -78,7 +78,7 @@ body {
   z-index: 20;
 }
 
-/* --------- MOBILE STYLES --------- */
+/* Mobile styles */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
