@@ -177,7 +177,6 @@ body {
 
 /* Intro styles */
 
-/* ========== INTRO SCREEN ========== */
 .intro-screen {
   position: fixed;
   top: 0;
@@ -247,13 +246,13 @@ body {
 
 #enterBtn {
   padding: 10px 24px;
-  background-color: #355070;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   font-weight: bold;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 2rem;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -263,16 +262,11 @@ body {
   color: #333;
 }
 
-/* Zoom animation */
-.intro-screen.zooming .intro-laptop {
-  transform: scale(6) translateY(10vh);
-}
-
 .intro-screen.zooming {
   pointer-events: none;
 }
 
-/* ========== MAIN SITE FADE-IN ========== */
+/* Main site fade-in */
 #site-content.hidden {
   display: none;
   opacity: 0;
@@ -294,35 +288,18 @@ body {
   }
 }
 
-/* Glowing screen background inside laptop */
-.screen-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 380px; /* wider */
-  height: 265px; /* taller to fill screen area */
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0)
-  );
-  transform: translate(-50%, -50%);
-  animation: screenPulse 2.5s ease-in-out infinite;
-  z-index: -1;
-  border-radius: 20px;
-  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.1);
+/* Hide heading and button instantly on click */
+.intro-screen.fade-elements h1,
+.intro-screen.fade-elements .button-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes screenPulse {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
+/* Bigger zoom to fully cover screen */
+.intro-screen.zooming .intro-laptop {
+  transform: scale(10) translateY(5vh);
+  transition: transform 1.2s ease-in-out;
 }
 
 /* Responsive Adjustments */
@@ -332,15 +309,11 @@ body {
   }
 
   #enterBtn {
-    font-size: 0.95rem;
+    font-size: 1rem;
     padding: 8px 20px;
   }
 
   .intro-content {
     max-width: 90%;
-  }
-
-  .screen-bg {
-    display: none;
   }
 }
