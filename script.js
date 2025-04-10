@@ -87,3 +87,34 @@ if (contactForm) {
       });
   });
 }
+
+// Typing animation
+const words = ['Creative.', 'Curious.', 'Frontend Dev.'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typedText = document.getElementById('typed-text');
+
+function type() {
+  const currentWord = words[wordIndex];
+  const currentChars = isDeleting
+    ? currentWord.substring(0, charIndex--)
+    : currentWord.substring(0, charIndex++);
+
+  typedText.textContent = currentChars;
+
+  if (!isDeleting && charIndex === currentWord.length) {
+    isDeleting = true;
+    setTimeout(type, 1000); // Pause at full word
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    setTimeout(type, 200);
+  } else {
+    setTimeout(type, isDeleting ? 50 : 100);
+  }
+}
+
+if (typedText) {
+  type();
+}

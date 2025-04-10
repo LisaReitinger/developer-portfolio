@@ -25,7 +25,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  z-index: 10;
+  z-index: 999;
 }
 
 /* Logo */
@@ -124,7 +124,8 @@ body {
 
 .about-section {
   padding: 160px 40px 80px;
-  background-color: #f4f4f4;
+  /* background: linear-gradient(to bottom, #f4f4f4, #d4d8e8); */
+  background: linear-gradient(to bottom, #ffffff, #a3acc4);
   color: #333;
 }
 
@@ -289,7 +290,8 @@ body {
 }
 
 /* Hide heading and button instantly on click */
-.intro-screen.fade-elements h1,
+
+.intro-screen.fade-elements .intro-fade-wrapper,
 .intro-screen.fade-elements .button-overlay {
   opacity: 0;
   pointer-events: none;
@@ -326,7 +328,8 @@ body {
   justify-content: space-between;
   gap: 40px;
   padding: 100px 40px;
-  background-color: #355070;
+  /* background: linear-gradient(to bottom, #d4d8e8, #a3acc4); */
+  background: linear-gradient(to bottom, #a3acc4, #6d597a);
   scroll-margin-top: 120px;
 }
 
@@ -433,7 +436,8 @@ body {
 
 /* Contact Section */
 .contact-section {
-  background-color: #f4f4f4;
+  /* background: linear-gradient(to bottom, #a3acc4, #6d597a); */
+  background: linear-gradient(to bottom, #6d597a, #b56576);
   padding: 100px 40px;
   color: #333;
   scroll-margin-top: 120px;
@@ -447,12 +451,13 @@ body {
 
 .contact-container h2 {
   font-size: 2.5rem;
-  color: #355070;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .contact-container p {
   margin-bottom: 30px;
+  color: #fff;
 }
 
 .contact-form {
@@ -506,4 +511,34 @@ body {
 
 .hidden {
   display: none;
+}
+
+/* intro screens */
+.animated-subtitle {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.cursor {
+  font-weight: bold;
+  color: #fff;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+#enterBtn {
+  font-size: 1.4rem;
+  padding: 14px 28px;
+  border-radius: 30px;
 }
