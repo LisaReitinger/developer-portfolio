@@ -5,19 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lisa Reitinger</title>
 
-    <!-- Font Awesome for hamburger icon -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-
     <!-- Google Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Favicons -->
     <!-- Favicons -->
     <link
       rel="apple-touch-icon"
@@ -67,9 +60,12 @@
 
       <div class="intro-content">
         <img
-          src="images/laptop-intro.png"
+          src="images/laptop-intro.webp"
           alt="Intro Laptop"
           class="intro-laptop"
+          width="800"
+          height="600"
+          loading="lazy"
         />
         <div class="button-overlay">
           <button id="enterBtn">Step into my world!</button>
@@ -86,7 +82,20 @@
 
         <!-- Hamburger Icon (mobile only) -->
         <div class="menu-toggle">
-          <i class="fas fa-bars"></i>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="white"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 6h18M3 12h18M3 18h18"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
         </div>
 
         <!-- Navigation Menu -->
