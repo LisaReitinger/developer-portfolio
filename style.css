@@ -47,6 +47,7 @@ main {
 /* Logo */
 .logo-image img {
   width: 90px;
+  margin-top: 21px;
 }
 
 /* Nav links (desktop) */
