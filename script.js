@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // NAvbar Toogle
+  // Navbar Toogle
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
 
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const enterBtn = document.getElementById('enterBtn');
   const introScreen = document.getElementById('intro');
   const siteContent = document.getElementById('site-content');
+  const mainHeader = document.getElementById('main-header');
 
   // Hide main content initially
   siteContent.classList.add('hidden');
@@ -35,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
       introScreen.style.display = 'none';
       siteContent.classList.remove('hidden');
       siteContent.classList.add('visible');
-    }, 1000); // match zoom duration in CSS
+      mainHeader.classList.remove('hidden');
+    }, 1000);
   });
 });
 

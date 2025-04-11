@@ -11,6 +11,10 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+main {
+  padding-top: 90px;
+}
+
 /* Navbar */
 .navbar {
   --text-color: #fff;
@@ -18,7 +22,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 120px;
+  height: 90px;
   background-color: #355070;
   color: var(--text-color);
   display: flex;
@@ -26,6 +30,18 @@ body {
   align-items: center;
   padding: 0 40px;
   z-index: 999;
+}
+
+/* Fix the navbar and hide it initially */
+#main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+#main-header.hidden {
+  display: none;
 }
 
 /* Logo */
@@ -116,15 +132,14 @@ body {
   }
 
   .nav-links li::after {
-    display: none; /* Hide underline on mobile */
+    display: none;
   }
 }
 
 /* About section */
 
 .about-section {
-  padding: 160px 40px 80px;
-  /* background: linear-gradient(to bottom, #f4f4f4, #d4d8e8); */
+  padding: 100px 40px 80px;
   background: linear-gradient(to bottom, #ffffff, #a3acc4);
   color: #333;
 }
@@ -194,7 +209,6 @@ body {
   padding: 20px;
   text-align: center;
   transition: opacity 0.8s ease, visibility 0.8s ease;
-  /* tryout */
   background: linear-gradient(-45deg, #6d597a, #b56576, #355070, #f28482);
   background-size: 400% 400%;
   animation: gradientFlow 15s ease infinite;
@@ -436,7 +450,6 @@ body {
 
 /* Contact Section */
 .contact-section {
-  /* background: linear-gradient(to bottom, #a3acc4, #6d597a); */
   background: linear-gradient(to bottom, #6d597a, #b56576);
   padding: 100px 40px;
   color: #333;
