@@ -499,4 +499,8 @@ main {
   .intro-content {
     max-width: 90%;
   }
+
+  .intro-screen.zooming .intro-laptop {
+    transform: scale(12) translateY(0vh);
+  }
 }
